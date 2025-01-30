@@ -1,0 +1,8 @@
+.vscode
+
+**/zig-cache/
+**/zig-out/
+**/release/
+**/debug/
+**/build/
+**/build-*/
