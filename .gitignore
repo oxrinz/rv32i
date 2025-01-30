@@ -1,5 +1,7 @@
 .vscode
 
+program
+
 **/zig-cache/
 **/zig-out/
 **/release/

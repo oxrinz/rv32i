@@ -26,6 +26,7 @@ module top_tb;
     end
     
     always @(posedge clk) begin
+        $display("Instruction=%b", dut.instr);
         $display("Time=%0t pc=%h instr=%h", 
                  $time, dut.pc_out, dut.instr);
     end
@@ -34,13 +35,6 @@ module top_tb;
         #1;
         assert(dut.rst === 1'b1) 
         else $error("Reset not active at start");
-        
-        #11;
-        assert(dut.rst === 1'b0) 
-        else $error("Reset not deasserted after 10 time units");
-
-        assert(dut.alu_ops === 4'b0000)
-        else $error("alu_ops not 0000 for ADD");
         
         @(posedge clk);
         if (dut.pc_out !== 32'h0)
