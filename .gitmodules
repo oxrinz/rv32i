@@ -1,3 +1,6 @@
 [submodule "assembler"]
 	path = assembler
 	url = https://github.com/oxrinz/rv32i-asm.git
+[submodule "compiler"]
+	path = compiler
+	url = https://github.com/oxrinz/rv32i-comp
