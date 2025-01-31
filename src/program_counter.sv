@@ -14,7 +14,7 @@ module program_counter (
       if (load) begin
         pc <= addr;
       end else begin
-        pc <= pc + 32'b1;
+        pc <= pc + 32'd4;
       end
     end
   end

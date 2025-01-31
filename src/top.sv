@@ -19,12 +19,15 @@ module top (
   wire [2:0] branch_type;
   wire is_jump;
   wire is_jalr;
+  wire is_i_type;
   wire [4:0] rs1;
   wire [4:0] rs2;
-  wire rs1_used;
-  wire rs2_used;
+  wire [31:0] rs1_data;
+  wire [31:0] rs2_data;
   wire [4:0] rd;
+  wire [31:0] rd_data;
   wire [31:0] imm;
+  wire is_lui;
 
   // pc control
   assign pc_enable = 1'b1;
@@ -52,6 +55,15 @@ module top (
       .instr_out(instr)
   );
 
+  alu alu_inst (
+    .clk(clk),
+    .is_lui(is_lui),
+    .imm(imm),
+    .rd_data(rd_data),
+    .is_i_type(is_i_type),
+    .rs1_data(rs1_data)
+  );
+
   decoder decoder_inst (
       .instr(instr),
       .alu_ops(alu_ops),
@@ -65,10 +77,22 @@ module top (
       .is_jalr(is_jalr),
       .rs1(rs1),
       .rs2(rs2),
-      .rs1_used(rs1_used),
-      .rs2_used(rs2_used),
       .rd(rd),
-      .imm(imm)
+      .imm(imm),
+      .is_lui(is_lui),
+      .is_i_type(is_i_type)
+  );
+
+  register_file regfile_inst (
+    .clk(clk),
+    .rs1_addr(rs1),
+    .rs2_addr(rs2),
+    .rs1_data(rs1_data),
+    .rs2_data(rs2_data),
+
+    .we(reg_write),
+    .rd_addr(rd),
+    .rd_data(rd_data)
   );
 
 endmodule

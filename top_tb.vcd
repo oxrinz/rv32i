@@ -1,0 +1,275 @@
+$date
+	Fri Jan 31 03:57:45 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module top_tb $end
+$var reg 1 ! clk $end
+$scope module dut $end
+$var wire 1 ! clk $end
+$var wire 32 " load_addr [31:0] $end
+$var wire 1 # pc_enable $end
+$var wire 1 $ pc_load $end
+$var wire 32 % rs2_data [31:0] $end
+$var wire 5 & rs2 [4:0] $end
+$var wire 32 ' rs1_data [31:0] $end
+$var wire 5 ( rs1 [4:0] $end
+$var wire 1 ) reg_write $end
+$var wire 32 * rd_data [31:0] $end
+$var wire 5 + rd [4:0] $end
+$var wire 32 , pc_out [31:0] $end
+$var wire 1 - mem_write $end
+$var wire 2 . mem_width [1:0] $end
+$var wire 1 / mem_read $end
+$var wire 1 0 is_lui $end
+$var wire 1 1 is_jump $end
+$var wire 1 2 is_jalr $end
+$var wire 1 3 is_i_type $end
+$var wire 1 4 is_branch $end
+$var wire 32 5 instr [31:0] $end
+$var wire 32 6 imm [31:0] $end
+$var wire 3 7 branch_type [2:0] $end
+$var wire 4 8 alu_ops [3:0] $end
+$var reg 1 9 rst $end
+$scope module alu_inst $end
+$var wire 1 ! clk $end
+$var wire 32 : rs2_data [31:0] $end
+$var wire 32 ; rs1_data [31:0] $end
+$var wire 1 0 is_lui $end
+$var wire 1 3 is_i_type $end
+$var wire 32 < imm [31:0] $end
+$var reg 32 = rd_data [31:0] $end
+$upscope $end
+$scope module decoder_inst $end
+$var wire 5 > rs2 [4:0] $end
+$var wire 5 ? rs1 [4:0] $end
+$var wire 5 @ rd [4:0] $end
+$var wire 5 A opcode [4:0] $end
+$var wire 32 B instr [31:0] $end
+$var wire 7 C funct7 [6:0] $end
+$var wire 3 D funct3 [2:0] $end
+$var parameter 5 E BRANCH $end
+$var parameter 5 F I_TYPE $end
+$var parameter 5 G JAL $end
+$var parameter 5 H JALR $end
+$var parameter 5 I LOAD $end
+$var parameter 5 J LUI $end
+$var parameter 5 K R_TYPE $end
+$var parameter 5 L STORE $end
+$var reg 4 M alu_ops [3:0] $end
+$var reg 3 N branch_type [2:0] $end
+$var reg 32 O imm [31:0] $end
+$var reg 1 4 is_branch $end
+$var reg 1 3 is_i_type $end
+$var reg 1 2 is_jalr $end
+$var reg 1 1 is_jump $end
+$var reg 1 0 is_lui $end
+$var reg 1 / mem_read $end
+$var reg 2 P mem_width [1:0] $end
+$var reg 1 - mem_write $end
+$var reg 1 ) reg_write $end
+$var reg 1 Q rs1_used $end
+$var reg 1 R rs2_used $end
+$upscope $end
+$scope module instr_mem $end
+$var wire 32 S addr [31:0] $end
+$var reg 1 T continue_reading $end
+$var reg 32 U instr_out [31:0] $end
+$var integer 32 V file [31:0] $end
+$var integer 32 W i [31:0] $end
+$var integer 32 X status [31:0] $end
+$upscope $end
+$scope module pc_inst $end
+$var wire 32 Y addr [31:0] $end
+$var wire 1 ! clk $end
+$var wire 1 # enable $end
+$var wire 1 $ load $end
+$var wire 1 9 rst $end
+$var reg 32 Z pc [31:0] $end
+$upscope $end
+$scope module regfile_inst $end
+$var wire 1 ! clk $end
+$var wire 5 [ rd_addr [4:0] $end
+$var wire 32 \ rd_data [31:0] $end
+$var wire 5 ] rs1_addr [4:0] $end
+$var wire 5 ^ rs2_addr [4:0] $end
+$var wire 1 _ rst_n $end
+$var wire 1 ) we $end
+$var wire 32 ` rs2_data [31:0] $end
+$var wire 32 a rs1_data [31:0] $end
+$scope begin $unm_blk_28 $end
+$var integer 32 b i [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1000 L
+b1100 K
+b1101 J
+b0 I
+b11001 H
+b11011 G
+b100 F
+b11000 E
+$end
+#0
+$dumpvars
+bx b
+bx a
+bx `
+z_
+b11 ^
+b1000 ]
+bx \
+b101 [
+b0 Z
+b0 Y
+b11111111111111111111111111111111 X
+b10 W
+b10000000000000000000000000000011 V
+b10010001101000101001010110111 U
+0T
+b0 S
+xR
+xQ
+bx P
+b100100011 O
+bx N
+bx M
+b101 D
+b1001 C
+b10010001101000101001010110111 B
+b1101 A
+b101 @
+b1000 ?
+b11 >
+bx =
+b100100011 <
+bx ;
+bz :
+19
+bx 8
+bx 7
+b100100011 6
+b10010001101000101001010110111 5
+x4
+03
+x2
+x1
+10
+x/
+bx .
+x-
+b0 ,
+b101 +
+bx *
+1)
+b1000 (
+bx '
+b11 &
+bx %
+0$
+1#
+b0 "
+0!
+$end
+#5
+b100100011000000000000 *
+b100100011000000000000 =
+b100100011000000000000 \
+1!
+#10
+0!
+09
+#15
+b100100011000000000000 '
+b100100011000000000000 ;
+b100100011000000000000 a
+13
+b0 8
+b0 M
+b11111 &
+b11111 >
+b11111 ^
+b101 (
+b101 ?
+b101 ]
+b101111 C
+b0 D
+b100 A
+b10111111111 6
+b10111111111 <
+b10111111111 O
+00
+b1011111111100101000001010010011 5
+b1011111111100101000001010010011 B
+b1011111111100101000001010010011 U
+b100 ,
+b100 S
+b100 Z
+1!
+#20
+0!
+#25
+b0 %
+b0 `
+b0 '
+b0 ;
+b0 a
+b0 +
+b0 @
+b0 [
+b0 &
+b0 >
+b0 ^
+b0 (
+b0 ?
+b0 ]
+b0 C
+b0 A
+03
+b0 5
+b0 B
+b0 U
+b1000 ,
+b1000 S
+b1000 Z
+b100100011010111111111 *
+b100100011010111111111 =
+b100100011010111111111 \
+1!
+#30
+0!
+#35
+b1100 ,
+b1100 S
+b1100 Z
+1!
+#40
+0!
+#45
+b10000 ,
+b10000 S
+b10000 Z
+1!
+#50
+0!
+#55
+b10100 ,
+b10100 S
+b10100 Z
+1!
+#60
+0!
+#65
+b11000 ,
+b11000 S
+b11000 Z
+1!

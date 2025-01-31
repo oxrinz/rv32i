@@ -60,7 +60,7 @@ module instruction_memory (
     $display("Loaded %0d 32-bit instructions", i);
   end
 
-  always @(addr) begin
+  always @(*) begin
     instr_out = memory[addr>>2];
   end
 

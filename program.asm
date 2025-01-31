@@ -1,2 +1,2 @@
-addi x2 x2 -4
-sw x10 0(x2)
+lui t0 74565
+addi t0 t0 1535

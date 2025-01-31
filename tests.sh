@@ -2,6 +2,7 @@
 
 rm -rf build
 rm -f *.vcd
+rm -f program
 mkdir -p build
 
 ./assembler/zig-out/bin/assembler program.asm program
@@ -18,13 +19,13 @@ for tb_file in tb/*_tb.sv; do
         else
             echo "Compilation failed for $tb_name"
         fi
-        echo "----------------------------------------"
     else
         echo "Warning: Source file $src_file not found for testbench $tb_file"
     fi
 done
 
+gtkwave top_tb.vcd
+
 echo "Cleaning up build files and waveforms..."
 rm -rf build
-rm -f *.vcd
 echo "All tests completed and files cleaned up"
