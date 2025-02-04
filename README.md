@@ -1,3 +1,5 @@
 # RV32I
 
-A super simple 32-bit RISC-V processor in system verilog
+The full stack from hardware to c compiler implemented in systemverilog and zig.
+
+I aim to expand this project with time, potentially building a full OS on top of the rv32i
