@@ -61,7 +61,9 @@ module top (
     .imm(imm),
     .rd_data(rd_data),
     .is_i_type(is_i_type),
-    .rs1_data(rs1_data)
+    .rs1_data(rs1_data),
+    .rs2_data(rs2_data),
+    .alu_ops(alu_ops)
   );
 
   decoder decoder_inst (

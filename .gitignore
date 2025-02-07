@@ -8,3 +8,6 @@ program
 **/debug/
 **/build/
 **/build-*/
+
+# some temp files that might accidentally get leaved in, don't remove even if they don't exist
+top_tb.vcd

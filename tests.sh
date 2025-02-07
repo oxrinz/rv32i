@@ -5,7 +5,16 @@ rm -f *.vcd
 rm -f program
 mkdir -p build
 
+
+
+
+
+./compiler/zig-out/bin/compiler program.c
 ./assembler/zig-out/bin/assembler program.asm program
+
+
+
+
 
 for tb_file in tb/*_tb.sv; do
     tb_name=$(basename "$tb_file" _tb.sv)
