@@ -20,6 +20,8 @@ module alu (
       case (alu_ops)
         4'b0000: rd_data = rs1_data + rs2_data;
         4'b0001: rd_data = rs1_data - rs2_data;
+        4'b1100: rd_data = rs1_data * rs2_data;
+        4'b1101: rd_data = rs1_data / rs2_data;
         default: rd_data = 32'b0;
       endcase
     end
