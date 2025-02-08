@@ -11,7 +11,7 @@ I aim to expand this project with time, potentially building a small OS on top o
 ## Currently supports
 - [x] Precedence climbing
 - [x] Add, sub, mul, div
-- [ ] Bitwise ops
+- [x] Bitwise ops
 - [ ] Logical ops
 - [ ] Better, more optimized asm gen code with register spilling
 
