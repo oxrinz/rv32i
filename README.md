@@ -21,11 +21,11 @@ I aim to expand this project with time, potentially building a small OS on top o
 ### R-Type
 - [x] ADD
 - [x] SUB
-- [ ] XOR
-- [ ] OR
-- [ ] AND
-- [ ] SLL
-- [ ] SRL
+- [x] XOR
+- [x] OR
+- [x] AND
+- [x] SLL
+- [x] SRL
 - [ ] SRA
 - [ ] SLT
 - [ ] SLTU

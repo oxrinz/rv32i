@@ -56,7 +56,7 @@ module decoder (
             3'b110: alu_ops = 4'b0011;  // OR
             3'b111: alu_ops = 4'b0100;  // AND
             3'b001: alu_ops = 4'b0101;  // SLL
-            3'b101: alu_ops = (funct7 !== 7'b0100000) ? 4'b0111 : 4'b1000;  // SRL : SRA
+            3'b101: alu_ops = (funct7 !== 7'b0100000) ? 4'b0110 : 4'b1000;  // SRL : SRA
             3'b010: alu_ops = 4'b1001;  // SLT
             3'b011: alu_ops = 4'b1011;  // SLTU
           endcase
