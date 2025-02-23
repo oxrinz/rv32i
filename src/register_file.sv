@@ -13,19 +13,20 @@ module register_file (
 );
 
   reg [31:0] registers[31:0];
+  reg [ 2:0] flags    [ 2:0];
 
   assign rs1_data = (rs1_addr == 0) ? 32'b0 : registers[rs1_addr];
   assign rs2_data = (rs2_addr == 0) ? 32'b0 : registers[rs2_addr];
 
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
-            integer i;
-            for (i = 0; i < 32; i = i + 1) begin
-                registers[i] <= 32'b0;
-            end
-        end else if (we && rd_addr != 0) begin
-            registers[rd_addr] <= rd_data;
-        end
+  always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      integer i;
+      for (i = 0; i < 32; i = i + 1) begin
+        registers[i] <= 32'b0;
+      end
+    end else if (we && rd_addr != 0) begin
+      registers[rd_addr] <= rd_data;
     end
+  end
 
 endmodule

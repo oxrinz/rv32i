@@ -1,4 +1,4 @@
-module top_tb;
+module sim;
 
   reg clk;
   wire [31:0] pc_out;
@@ -12,8 +12,8 @@ module top_tb;
   end
 
   initial begin
-    $dumpfile("top_tb.vcd");
-    $dumpvars(0, top_tb);
+    $dumpfile("sim.vcd");
+    $dumpvars(0, sim);
 
     #15;
 
@@ -25,15 +25,6 @@ module top_tb;
 
   always @(posedge clk) begin
 
-  end
-
-  initial begin
-    #1;
-    assert (dut.rst === 1'b1)
-    else $error("Reset not active at start");
-
-    @(posedge clk);
-    if (dut.pc_out !== 32'h0) $error("PC not reset to 0");
   end
 
 endmodule

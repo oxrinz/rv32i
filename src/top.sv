@@ -30,9 +30,7 @@ module top (
   wire is_lui;
 
   // pc control
-  assign pc_enable = 1'b1;
-  assign pc_load   = 1'b0;  // modify this based on branch/jump results
-  assign load_addr = 32'b0;  // set this to branch/jump target
+  assign pc_enable = 0;
 
   // reset logic
   reg rst;
@@ -56,27 +54,27 @@ module top (
   );
 
   alu alu_inst (
-    .clk(clk),
-    .is_lui(is_lui),
-    .imm(imm),
-    .rd_data(rd_data),
-    .is_i_type(is_i_type),
-    .rs1_data(rs1_data),
-    .rs2_data(rs2_data),
-    .alu_ops(alu_ops)
+      .clk(clk),
+      .is_lui(is_lui),
+      .imm(imm),
+      .rd_data(rd_data),
+      .is_i_type(is_i_type),
+      .rs1_data(rs1_data),
+      .rs2_data(rs2_data),
+      .alu_ops(alu_ops),
+      .pc_data(pc_out),
+      .new_pc_data(load_addr)
   );
 
   decoder decoder_inst (
       .instr(instr),
       .alu_ops(alu_ops),
+      .branch_type(branch_type),
       .reg_write(reg_write),
       .mem_read(mem_read),
       .mem_write(mem_write),
       .mem_width(mem_width),
       .is_branch(is_branch),
-      .branch_type(branch_type),
-      .is_jump(is_jump),
-      .is_jalr(is_jalr),
       .rs1(rs1),
       .rs2(rs2),
       .rd(rd),
@@ -86,15 +84,15 @@ module top (
   );
 
   register_file regfile_inst (
-    .clk(clk),
-    .rs1_addr(rs1),
-    .rs2_addr(rs2),
-    .rs1_data(rs1_data),
-    .rs2_data(rs2_data),
+      .clk(clk),
+      .rs1_addr(rs1),
+      .rs2_addr(rs2),
+      .rs1_data(rs1_data),
+      .rs2_data(rs2_data),
 
-    .we(reg_write),
-    .rd_addr(rd),
-    .rd_data(rd_data)
+      .we(reg_write),
+      .rd_addr(rd),
+      .rd_data(rd_data)
   );
 
 endmodule

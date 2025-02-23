@@ -1,7 +1,8 @@
 module decoder (
     input [31:0] instr,
 
-    output reg [3:0] alu_ops,  // add, sub, xor, or, and, sll, srl, sra, slt, sltu
+    output reg [3:0] alu_ops,     // add, sub, xor, or, and, sll, srl, sra, slt, sltu
+    output reg [2:0] branch_type, // BEQ, BNE, BLT, BGE, BLTU, BGEU
 
     output reg reg_write,  // 1 for R, I. 0 for S, B
 
@@ -9,12 +10,9 @@ module decoder (
     output reg       mem_write,  // 1 for SB/SH/SW
     output reg [1:0] mem_width,  // 00 byte, 01 half, 10 word
 
-    output reg       is_branch,
-    output reg [2:0] branch_type,  // BEQ, BNE, BLT, BGE, BLTU, BGEU
-    output reg       is_jump,
-    output reg       is_jalr,
-    output reg       is_lui,
-    output reg       is_i_type,
+    output reg is_lui,
+    output reg is_i_type,
+    output reg is_branch,
 
     output     [4:0] rs1,
     output     [4:0] rs2,
@@ -32,6 +30,7 @@ module decoder (
 
   localparam R_TYPE = 5'b01100;
   localparam I_TYPE = 5'b00100;
+  localparam B_TYPE = 5'b11000;
   localparam LUI = 5'b01101;
   localparam LOAD = 5'b00000;
   localparam STORE = 5'b01000;
@@ -47,6 +46,7 @@ module decoder (
   always @(*) begin
     is_lui = 0;
     is_i_type = 0;
+    is_branch = 0;
     case (opcode)
       R_TYPE: begin
         if (funct7 != 7'b0000001) begin
@@ -87,6 +87,14 @@ module decoder (
         endcase
 
         is_i_type = 1;
+      end
+
+      B_TYPE: begin
+        case (funct3)
+          3'b000: branch_type = 3'b000;
+        endcase
+
+        is_branch = 1;
       end
 
       LUI: begin

@@ -2,11 +2,14 @@ module alu (
     input clk,
     input is_lui,
     input is_i_type,
+    input is_branch,
     input [3:0] alu_ops,
     input [31:0] rs1_data,
     input [31:0] rs2_data,
     input [31:0] imm,
-    output reg [31:0] rd_data
+    input [31:0] pc_data,
+    output reg [31:0] rd_data,
+    output reg [31:0] new_pc_data
 );
 
   wire signed [31:0] rs1_signed = $signed(rs1_data);
@@ -18,8 +21,13 @@ module alu (
 
     if (is_lui) begin
       rd_data = imm << 12;
+
     end else if (is_i_type) begin
       rd_data = rs1_signed + imm_signed;
+
+    end else if (is_branch) begin
+      new_pc_data = pc_data + imm;
+
     end else begin
       case (alu_ops)
         4'b0000: rd_data = rs1_signed + rs2_signed;
