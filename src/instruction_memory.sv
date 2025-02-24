@@ -8,7 +8,7 @@ module instruction_memory (
   integer status;
   reg continue_reading;
 
-  initial begin 
+  initial begin
     for (i = 0; i < 1024; i = i + 1) begin
       memory[i] = 32'h0;
     end
@@ -57,7 +57,11 @@ module instruction_memory (
     end
 
     $fclose(file);
+
+`ifdef DEBUG
     $display("Loaded %0d 32-bit instructions", i);
+    $display("Memory initialization complete");
+`endif
   end
 
   always @(*) begin

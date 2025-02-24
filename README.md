@@ -27,7 +27,7 @@ I aim to expand this project with time, potentially building a small OS on top o
 - [x] SLL
 - [x] SRL
 - [ ] SRA
-- [ ] SLT
+- [x] SLT
 - [ ] SLTU
 - [x] MUL
 - [ ] MULH
@@ -39,7 +39,7 @@ I aim to expand this project with time, potentially building a small OS on top o
 - [ ] REMU
 ### I-Type
 - [x] ADDI
-- [ ] XORI
+- [x] XORI
 - [ ] ORI
 - [ ] ANDI
 - [ ] SLLI
@@ -52,7 +52,7 @@ I aim to expand this project with time, potentially building a small OS on top o
 - [ ] LW
 - [ ] LBU
 - [ ] LHU
-- Env/syscalls won't be implemented
+- Env/syscalls won't be implemented (yet???)
 ### S-Type
 - [ ] SB
 - [ ] SH

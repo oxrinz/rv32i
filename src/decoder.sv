@@ -86,6 +86,7 @@ module decoder (
           3'b011: alu_ops = 4'b1011;
         endcase
 
+        imm = instr[31:20];
         is_i_type = 1;
       end
 

@@ -30,13 +30,14 @@ module top (
   wire is_lui;
 
   // pc control
-  assign pc_enable = 0;
+  assign pc_enable = 1;
+  assign pc_load = 0;
 
   // reset logic
   reg rst;
   initial begin
     rst = 1'b1;
-    #10 rst = 1'b0;
+    #1 rst = 1'b0;
   end
 
   program_counter pc_inst (
