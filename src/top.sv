@@ -16,7 +16,6 @@ module top (
   wire mem_write;
   wire [1:0] mem_width;
   wire is_branch;
-  wire [2:0] branch_type;
   wire is_jump;
   wire is_jalr;
   wire is_i_type;
@@ -31,7 +30,6 @@ module top (
 
   // pc control
   assign pc_enable = 1;
-  assign pc_load = 0;
 
   // reset logic
   reg rst;
@@ -59,18 +57,19 @@ module top (
       .is_lui(is_lui),
       .imm(imm),
       .rd_data(rd_data),
+      .is_branch(is_branch),
       .is_i_type(is_i_type),
       .rs1_data(rs1_data),
       .rs2_data(rs2_data),
       .alu_ops(alu_ops),
       .pc_data(pc_out),
+      .pc_load(pc_load),
       .new_pc_data(load_addr)
   );
 
   decoder decoder_inst (
       .instr(instr),
       .alu_ops(alu_ops),
-      .branch_type(branch_type),
       .reg_write(reg_write),
       .mem_read(mem_read),
       .mem_write(mem_write),

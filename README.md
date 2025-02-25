@@ -49,8 +49,8 @@ I aim to expand this project with time, potentially building a small OS on top o
 - [ ] SH
 - [ ] SW
 ### B-Type
-- [ ] BEQ
-- [ ] BNE
+- [x] BEQ
+- [x] BNE
 - [ ] BLT
 - [ ] BGE
 - [ ] BLTU

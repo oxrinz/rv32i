@@ -65,7 +65,7 @@ module instruction_memory (
   end
 
   always @(*) begin
-    instr_out = memory[addr>>2];
+    instr_out = memory[addr];
   end
 
 endmodule

@@ -1,8 +1,7 @@
 module decoder (
     input [31:0] instr,
 
-    output reg [3:0] alu_ops,     // add, sub, xor, or, and, sll, srl, sra, slt, sltu
-    output reg [2:0] branch_type, // BEQ, BNE, BLT, BGE, BLTU, BGEU
+    output reg [3:0] alu_ops,  // add, sub, xor, or, and, sll, srl, sra, slt, sltu
 
     output reg reg_write,  // 1 for R, I. 0 for S, B
 
@@ -83,7 +82,7 @@ module decoder (
             else if (imm[11:5] == 7'b0100000) alu_ops = 4'b0111;
           end
           3'b010: alu_ops = 4'b1001;
-          3'b011: alu_ops = 4'b1011; // SLTIU
+          3'b011: alu_ops = 4'b1011;  // SLTIU
         endcase
 
         imm = instr[31:20];
@@ -92,10 +91,20 @@ module decoder (
 
       B_TYPE: begin
         case (funct3)
-          3'b000: branch_type = 3'b000;
+          3'b000: alu_ops = 4'b0000;  // BEQ
+          3'b001: alu_ops = 4'b0001;  // BNE
+          3'b100: alu_ops = 4'b0010;  // BLT
+          3'b101: alu_ops = 4'b0011;  // BGE
+          3'b110: alu_ops = 4'b0100;  // BLTU
+          3'b111: alu_ops = 4'b0101;  // BGEU
         endcase
 
+        imm[11:5] = instr[31:25];
+        imm[4:0] = instr[11:7];
+
         is_branch = 1;
+        rs1_used  = 1; 
+        rs2_used  = 1;
       end
 
       LUI: begin

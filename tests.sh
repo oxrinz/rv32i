@@ -18,15 +18,15 @@ run_sv_tests() {
     for testbench in tb/*.sv; do
         if [ -f "$testbench" ]; then
             local tb_name=$(basename "$testbench" .sv)
-            ./assembler/zig-out/bin/assembler "./tb/${tb_name}.asm" program
+            cd assembler
+            zig build run -- "../tb/${tb_name}.asm" ../program
+            cd ..
             
             iverilog -g2012 ${IVERILOG_FLAGS} "$testbench" src/*.sv -o -
-            vvp - 2>/dev/null
-            local run_status=$?
+            vvp - | grep -v "VCD info\|\$finish called at"
+            local run_status=${PIPESTATUS[0]}
             
             if [ $run_status -eq 0 ]; then
-                echo -e ""
-                # echo "✓ ${tb_name} passed"
                 [ -f ${tb_name}_dump.vcd ] && rm ${tb_name}_dump.vcd
             else
                 echo "✗ ${tb_name} failed with exit code ${run_status}"
@@ -80,6 +80,7 @@ overall_status=$((overall_status + sv_status))
 
 rm -
 rm -rf test_results
+rm -rf build
 
 echo -e "\nTest Summary:"
 echo "Compiler tests: $([ $compiler_status -eq 0 ] && echo "PASSED" || echo "FAILED")"

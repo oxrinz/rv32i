@@ -8,6 +8,7 @@ module alu (
     input [31:0] rs2_data,
     input [31:0] imm,
     input [31:0] pc_data,
+    output reg pc_load,
     output reg [31:0] rd_data,
     output reg [31:0] new_pc_data
 );
@@ -18,6 +19,7 @@ module alu (
 
   always @* begin
     rd_data = 32'b0;
+    pc_load = 0;
 
     if (is_lui) begin
       rd_data = imm << 12;
@@ -31,7 +33,19 @@ module alu (
       endcase
 
     end else if (is_branch) begin
-      new_pc_data = pc_data + imm;
+      case (alu_ops)
+        4'b0000:
+        if (rs1_signed == rs2_signed) begin
+          pc_load = 1;
+          new_pc_data = pc_data + imm;
+        end
+
+        4'b0001:
+        if (rs1_signed != rs2_signed) begin
+          pc_load = 1;
+          new_pc_data = pc_data + imm;
+        end
+      endcase
 
     end else begin
       case (alu_ops)
