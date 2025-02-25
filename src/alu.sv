@@ -26,6 +26,8 @@ module alu (
       case (alu_ops)
         4'b0000: rd_data = rs1_signed + imm_signed;
         4'b0010: rd_data = rs1_signed ^ imm_signed;
+        4'b1000: rd_data = rs1_signed < imm;
+        4'b1011: rd_data = rs1_data < imm;
       endcase
 
     end else if (is_branch) begin

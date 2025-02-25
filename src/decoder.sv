@@ -83,7 +83,7 @@ module decoder (
             else if (imm[11:5] == 7'b0100000) alu_ops = 4'b0111;
           end
           3'b010: alu_ops = 4'b1001;
-          3'b011: alu_ops = 4'b1011;
+          3'b011: alu_ops = 4'b1011; // SLTIU
         endcase
 
         imm = instr[31:20];

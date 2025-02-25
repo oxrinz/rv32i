@@ -6,15 +6,6 @@ Full stack from hardware to c compiler implemented in systemverilog and zig.
 
 I aim to expand this project with time, potentially building a small OS on top of the rv32i
 
----
-
-## Currently supports
-- [x] Precedence climbing
-- [x] Add, sub, mul, div
-- [x] Bitwise ops
-- [ ] Logical ops
-- [ ] Better, more optimized asm gen code with register spilling
-
 --- 
 
 ## Instruction progress
@@ -46,7 +37,7 @@ I aim to expand this project with time, potentially building a small OS on top o
 - [ ] SRLI
 - [ ] SRAI
 - [ ] SLTI
-- [ ] SLTIU
+- [x] SLTIU
 - [ ] LB
 - [ ] LH
 - [ ] LW

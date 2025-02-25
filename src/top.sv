@@ -86,6 +86,7 @@ module top (
 
   register_file regfile_inst (
       .clk(clk),
+      // .rst_n(rst),
       .rs1_addr(rs1),
       .rs2_addr(rs2),
       .rs1_data(rs1_data),
