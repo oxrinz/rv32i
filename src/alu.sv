@@ -45,6 +45,18 @@ module alu (
           pc_load = 1;
           new_pc_data = pc_data + imm;
         end
+
+        4'b0010:
+        if (rs1_signed < rs2_signed) begin
+          pc_load = 1;
+          new_pc_data = pc_data + imm;
+        end
+
+        4'b0011:
+        if (rs1_signed >= rs2_signed) begin
+          pc_load = 1;
+          new_pc_data = pc_data + imm;
+        end
       endcase
 
     end else begin

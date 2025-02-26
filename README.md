@@ -51,8 +51,8 @@ I aim to expand this project with time, potentially building a small OS on top o
 ### B-Type
 - [x] BEQ
 - [x] BNE
-- [ ] BLT
-- [ ] BGE
+- [x] BLT
+- [x] BGE
 - [ ] BLTU
 - [ ] BGEU
 ### Jumps (J and I)
