@@ -15,16 +15,10 @@ module sim;
     $dumpfile("sim.vcd");
     $dumpvars(0, sim);
 
-    #15;
-
-    #50;
+    #60;
 
     $display("Simulation completed successfully");
     $finish;
-  end
-
-  always @(posedge clk) begin
-
   end
 
 endmodule

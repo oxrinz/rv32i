@@ -4,7 +4,19 @@ RISC-V int only with multiply extensions
 
 Full stack from hardware to c compiler implemented in systemverilog and zig.
 
-I aim to expand this project with time, potentially building a small OS on top of the rv32i
+I plan to expand this project with time, potentially building a small OS on top of the rv32i
+
+<!-- --- 
+
+### Quick rundown of the project:
+- **Assembler**: non universal RISC-V assembler. Works for this architecture only
+- **Compiler**: non universal C compiler. Works for this architecture only
+- **sh**: Preset files to run the different parts of the stack
+- **shared_tests**: Assembly code that is used for testing both the CPU as the source program and the compiler as the expected output
+- **src**: CPU source code
+- **tb**: SystemVerilog testbenches
+- **run.sh**: Takes "program.c" in root directory, compiles it, assembles it, runs the iverilog simulation and opens gtkwave
+- **tests.sh**: Runs tests for all modules. Requires all submodules to be imported in order to work -->
 
 --- 
 
