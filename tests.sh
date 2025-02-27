@@ -18,16 +18,19 @@ run_sv_tests() {
     for testbench in tb/*.sv; do
         if [ -f "$testbench" ]; then
             local tb_name=$(basename "$testbench" .sv)
+            
+            local name=${tb_name%_tb}
             cd assembler
-            zig build run -- "../tb/${tb_name}.asm" ../program
+            zig build run -- "../shared_tests/${name}.asm" ../program
             cd ..
+    
             
             iverilog -g2012 ${IVERILOG_FLAGS} "$testbench" src/*.sv -o -
             vvp - | grep -v "VCD info\|\$finish called at"
             local run_status=${PIPESTATUS[0]}
             
             if [ $run_status -eq 0 ]; then
-                [ -f ${tb_name}_dump.vcd ] && rm ${tb_name}_dump.vcd
+                [ -f ${tb_name}.vcd ] && rm ${tb_name}.vcd
             else
                 echo "✗ ${tb_name} failed with exit code ${run_status}"
                 sv_status=1

@@ -8,19 +8,17 @@ module alu_tb;
   end
 
   initial begin
-    $dumpfile("btype_tb_dump.vcd");
+    $dumpfile("or_short_circuit_2_tb.vcd");
     $dumpvars(0, dut);
   end
 
   initial begin
-    #12;
-
-    if (dut.regfile_inst.registers[5] !== 32'd1) begin
-      $error("a0 has wrong final value: got %d, expected 1", dut.regfile_inst.registers[10]);
+    #40;
+    if (dut.instr_mem.addr !== 32'd25) begin
+      $error("Instruction memory has wrong active address: got %d, expected 25",
+             dut.instr_mem.addr);
       $fatal(1, "Test failed");
     end
-
-    #12
 
     $finish;
   end
