@@ -6,7 +6,7 @@ Full stack from hardware to c compiler implemented in systemverilog and zig.
 
 I plan to expand this project with time, potentially building a small OS on top of the rv32i
 
-<!-- --- 
+--- 
 
 ### Quick rundown of the project:
 - **Assembler**: non universal RISC-V assembler. Works for this architecture only
@@ -16,7 +16,7 @@ I plan to expand this project with time, potentially building a small OS on top 
 - **src**: CPU source code
 - **tb**: SystemVerilog testbenches
 - **run.sh**: Takes "program.c" in root directory, compiles it, assembles it, runs the iverilog simulation and opens gtkwave
-- **tests.sh**: Runs tests for all modules. Requires all submodules to be imported in order to work -->
+- **tests.sh**: Runs tests for all modules. Requires all submodules to be imported in order to work
 
 --- 
 
