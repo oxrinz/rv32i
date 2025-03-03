@@ -38,6 +38,8 @@ module top (
     #1 rst = 1'b0;
   end
 
+    // fetch
+
   program_counter pc_inst (
       .clk(clk),
       .rst(rst),

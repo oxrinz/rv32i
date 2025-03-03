@@ -14,7 +14,8 @@
           buildInputs = with pkgs; [
             zig
             iverilog   
-            gtkwave  
+            gtkwave
+            yosys
           
             gnumake
             gcc

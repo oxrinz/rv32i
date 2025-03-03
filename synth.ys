@@ -1,0 +1,13 @@
+read_verilog -sv src/*.sv
+
+verilog_defines -DSYNTHESIS
+
+hierarchy -top top
+
+proc; opt; fsm; opt; memory; opt
+
+techmap; opt
+
+write_verilog -noattr build/synth_output.v
+
+write_sdf build/synth_output.sdf

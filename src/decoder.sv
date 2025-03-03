@@ -107,6 +107,10 @@ module decoder (
         rs2_used  = 1;
       end
 
+      S_TYPE: begin
+
+      end
+
       LUI: begin
         is_lui = 1;
         imm = instr[31:20];

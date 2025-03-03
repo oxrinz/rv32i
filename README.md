@@ -1,10 +1,8 @@
 # RV32I
 
-RISC-V int only with multiply extensions
+RISC-V int only with multiply extension
 
-Full stack from hardware to c compiler implemented in systemverilog and zig.
-
-I plan to expand this project with time, potentially building a small OS on top of the rv32i
+The full stack from hardware to c compiler implemented in systemverilog and zig.
 
 --- 
 

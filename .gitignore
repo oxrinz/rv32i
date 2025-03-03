@@ -4,7 +4,7 @@ program
 program.asm
 program.c
 
-**/zig-cache/
+**/.zig-cache/
 **/zig-out/
 **/release/
 **/debug/
