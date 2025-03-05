@@ -48,16 +48,16 @@ The full stack from hardware to c compiler implemented in systemverilog and zig.
 - [ ] SRAI
 - [ ] SLTI
 - [x] SLTIU
-- [ ] LB
-- [ ] LH
-- [ ] LW
+- [x] LB
+- [x] LH
+- [x] LW
 - [ ] LBU
 - [ ] LHU
 - Env/syscalls won't be implemented (yet???)
 ### S-Type
-- [ ] SB
-- [ ] SH
-- [ ] SW
+- [x] SB
+- [x] SH
+- [x] SW
 ### B-Type
 - [x] BEQ
 - [x] BNE

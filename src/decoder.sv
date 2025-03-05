@@ -11,7 +11,9 @@ module decoder (
 
     output reg is_lui,
     output reg is_i_type,
+    output reg is_i_load_type,
     output reg is_branch,
+    output reg is_store,
 
     output     [4:0] rs1,
     output     [4:0] rs2,
@@ -29,7 +31,9 @@ module decoder (
 
   localparam R_TYPE = 5'b01100;
   localparam I_TYPE = 5'b00100;
+  localparam I_LOAD_TYPE = 5'b00000;
   localparam B_TYPE = 5'b11000;
+  localparam S_TYPE = 5'b01000;
   localparam LUI = 5'b01101;
   localparam LOAD = 5'b00000;
   localparam STORE = 5'b01000;
@@ -45,7 +49,14 @@ module decoder (
   always @(*) begin
     is_lui = 0;
     is_i_type = 0;
+    is_i_load_type = 0;
     is_branch = 0;
+    is_store = 0;
+
+    mem_write = 0;
+    mem_read = 0;
+    reg_write = 0;
+
     case (opcode)
       R_TYPE: begin
         if (funct7 != 7'b0000001) begin
@@ -69,6 +80,7 @@ module decoder (
 
         rs1_used = 1;
         rs2_used = 1;
+        reg_write = 1;
       end
 
       I_TYPE: begin
@@ -87,6 +99,22 @@ module decoder (
 
         imm = instr[31:20];
         is_i_type = 1;
+        reg_write = 1;
+      end
+
+      I_LOAD_TYPE: begin
+        case (funct3)
+          3'b000: mem_width = 2'b00;  // LB
+          3'b001: mem_width = 2'b01;  // LH
+          3'b010: mem_width = 2'b10;  // LW
+          3'b011: mem_width = 2'b00;  // LBU
+          3'b100: mem_width = 2'b01;  // LHU
+        endcase
+
+        imm = instr[31:20];
+        mem_read = 1;
+        is_i_load_type = 1;
+        reg_write = 1;
       end
 
       B_TYPE: begin
@@ -100,15 +128,27 @@ module decoder (
         endcase
 
         imm[11:5] = instr[31:25];
-        imm[4:0] = instr[11:7];
+        imm[4:0]  = instr[11:7];
 
         is_branch = 1;
-        rs1_used  = 1; 
+        rs1_used  = 1;
         rs2_used  = 1;
       end
 
       S_TYPE: begin
+        case (funct3)
+          3'b000: mem_width = 2'b00;  // SB
+          3'b001: mem_width = 2'b01;  // SH
+          3'b010: mem_width = 2'b10;  // SW
+        endcase
 
+        imm[11:5] = instr[31:25];
+        imm[4:0]  = instr[11:7];
+
+        mem_write = 1;
+        is_store  = 1;
+        rs1_used  = 1;
+        rs2_used  = 1;
       end
 
       LUI: begin

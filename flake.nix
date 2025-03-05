@@ -6,25 +6,23 @@
 
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
+      let pkgs = nixpkgs.legacyPackages.${system};
+      in {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             zig
-            iverilog   
+            iverilog
             gtkwave
             yosys
-          
+            tcl
+
             gnumake
             gcc
           ];
 
           shellHook = ''
-
+            export TCL_TCLSH=${pkgs.tcl}/bin/tclsh
           '';
         };
-      }
-    );
+      });
 }

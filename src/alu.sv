@@ -2,15 +2,19 @@ module alu (
     input clk,
     input is_lui,
     input is_i_type,
+    input is_i_load_type,
     input is_branch,
+    input is_store,
     input [3:0] alu_ops,
     input [31:0] rs1_data,
     input [31:0] rs2_data,
     input [31:0] imm,
     input [31:0] pc_data,
+    input [31:0] mem_data,
     output reg pc_load,
     output reg [31:0] rd_data,
-    output reg [31:0] new_pc_data
+    output reg [31:0] new_pc_data,
+    output reg [31:0] mem_addr
 );
 
   wire signed [31:0] rs1_signed = $signed(rs1_data);
@@ -31,6 +35,10 @@ module alu (
         4'b1000: rd_data = rs1_signed < imm;
         4'b1011: rd_data = rs1_data < imm;
       endcase
+
+    end else if (is_i_load_type) begin
+      mem_addr = rs1_data + imm;
+      rd_data  = mem_data;
 
     end else if (is_branch) begin
       case (alu_ops)
@@ -58,6 +66,9 @@ module alu (
           new_pc_data = pc_data + imm;
         end
       endcase
+
+    end else if (is_store) begin
+      mem_addr = rs1_data + imm;
 
     end else begin
       case (alu_ops)

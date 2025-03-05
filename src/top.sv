@@ -14,11 +14,15 @@ module top (
   wire reg_write;
   wire mem_read;
   wire mem_write;
+  wire [31:0] mem_addr;
+  wire [31:0] mem_out;
   wire [1:0] mem_width;
   wire is_branch;
   wire is_jump;
   wire is_jalr;
   wire is_i_type;
+  wire is_i_load_type;
+  wire is_store;
   wire [4:0] rs1;
   wire [4:0] rs2;
   wire [31:0] rs1_data;
@@ -38,7 +42,7 @@ module top (
     #1 rst = 1'b0;
   end
 
-    // fetch
+  // fetch
 
   program_counter pc_inst (
       .clk(clk),
@@ -54,6 +58,15 @@ module top (
       .instr_out(instr)
   );
 
+  memory memory_inst (
+      .clk(clk),
+      .addr(mem_addr),
+      .data(rs2_data),
+      .read(mem_read),
+      .write(mem_write),
+      .data_out(mem_out)
+  );
+
   alu alu_inst (
       .clk(clk),
       .is_lui(is_lui),
@@ -61,12 +74,16 @@ module top (
       .rd_data(rd_data),
       .is_branch(is_branch),
       .is_i_type(is_i_type),
+      .is_i_load_type(is_i_load_type),
       .rs1_data(rs1_data),
       .rs2_data(rs2_data),
       .alu_ops(alu_ops),
       .pc_data(pc_out),
       .pc_load(pc_load),
-      .new_pc_data(load_addr)
+      .new_pc_data(load_addr),
+      .is_store(is_store),
+      .mem_addr(mem_addr),
+      .mem_data(mem_out)
   );
 
   decoder decoder_inst (
@@ -82,7 +99,9 @@ module top (
       .rd(rd),
       .imm(imm),
       .is_lui(is_lui),
-      .is_i_type(is_i_type)
+      .is_i_type(is_i_type),
+      .is_i_load_type(is_i_load_type),
+      .is_store(is_store)
   );
 
   register_file regfile_inst (

@@ -4,6 +4,8 @@ program
 program.asm
 program.c
 
+OpenTimer
+
 **/.zig-cache/
 **/zig-out/
 **/release/

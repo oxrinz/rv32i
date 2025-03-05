@@ -8,7 +8,7 @@ module memory(
 );
     reg [31:0] memory[0:1023];
 
-    always @(posedge clk) begin
+    always @(*) begin
         if (read == 1) begin
             data_out = memory[addr];
         end
@@ -18,4 +18,4 @@ module memory(
         end
     end
 
-endmodule
+endmodule 
