@@ -15,7 +15,7 @@ module sim;
     $dumpfile("sim.vcd");
     $dumpvars(0, sim);
 
-    #60;
+    #120;
 
     $display("Simulation completed successfully");
     $finish;

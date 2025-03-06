@@ -34,6 +34,7 @@ module decoder (
   localparam I_LOAD_TYPE = 5'b00000;
   localparam B_TYPE = 5'b11000;
   localparam S_TYPE = 5'b01000;
+  localparam J_TYPE = 5'b11011;
   localparam LUI = 5'b01101;
   localparam LOAD = 5'b00000;
   localparam STORE = 5'b01000;
@@ -78,8 +79,8 @@ module decoder (
           endcase
         end
 
-        rs1_used = 1;
-        rs2_used = 1;
+        rs1_used  = 1;
+        rs2_used  = 1;
         reg_write = 1;
       end
 
@@ -129,6 +130,16 @@ module decoder (
 
         imm[11:5] = instr[31:25];
         imm[4:0]  = instr[11:7];
+
+        is_branch = 1;
+        rs1_used  = 1;
+        rs2_used  = 1;
+      end
+
+      J_TYPE: begin
+        alu_ops   = 4'b0110; // JAL
+        
+        imm[20:0] = instr[31:12];
 
         is_branch = 1;
         rs1_used  = 1;

@@ -8,15 +8,15 @@ module alu_tb;
   end
 
   initial begin
-    $dumpfile("and_short_circuit_1_tb.vcd");
+    $dumpfile("if_3.vcd");
     $dumpvars(0, dut);
   end
 
   initial begin
-    #20;
-    if (dut.instr_mem.addr !== 32'd15) begin
-      $error("Instruction memory has wrong active address: got %d, expected 15",
-             dut.instr_mem.addr);
+    #30;
+    if (dut.alu_inst.rd_data !== 32'd62) begin
+      $error("Alu rd_data has wrong value: got %d, expected 62",
+             dut.alu_inst.rd_data);
       $fatal(1, "Test failed");
     end
 

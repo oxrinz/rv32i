@@ -66,7 +66,7 @@ The full stack from hardware to c compiler implemented in systemverilog and zig.
 - [ ] BLTU
 - [ ] BGEU
 ### Jumps (J and I)
-- [ ] JAL
+- [x] JAL
 - [ ] JALR
 ### U-Type
 - [x] LUI

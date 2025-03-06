@@ -65,6 +65,12 @@ module alu (
           pc_load = 1;
           new_pc_data = pc_data + imm;
         end
+
+        4'b0110: begin
+          rd_data = pc_data;
+          pc_load = 1;
+          new_pc_data = pc_data + imm;
+        end
       endcase
 
     end else if (is_store) begin
