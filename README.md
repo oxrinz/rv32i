@@ -36,7 +36,7 @@ The full stack from hardware to c compiler implemented in systemverilog and zig.
 - [ ] MULU
 - [x] DIV
 - [ ] DIVU
-- [ ] REM
+- [x] REM
 - [ ] REMU
 ### I-Type
 - [x] ADDI
