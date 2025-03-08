@@ -1,0 +1,503 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "/home/rinz/Projects/rv32i",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2025-03-07 20:15:49",
+            "filesum": 71,
+            "codesum": 4297,
+            "commentsum": 320,
+            "blanksum": 672,
+            "statistics": {
+                ".sv": {
+                    "code": 493,
+                    "comment": 21,
+                    "blank": 97
+                },
+                "": {
+                    "code": 28,
+                    "comment": 2,
+                    "blank": 4
+                },
+                ".c": {
+                    "code": 8,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".vcd": {
+                    "code": 31,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".sh": {
+                    "code": 92,
+                    "comment": 2,
+                    "blank": 32
+                },
+                ".nix": {
+                    "code": 25,
+                    "comment": 0,
+                    "blank": 3
+                },
+                ".md": {
+                    "code": 79,
+                    "comment": 2,
+                    "blank": 13
+                },
+                ".lock": {
+                    "code": 61,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".asm": {
+                    "code": 348,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".zig": {
+                    "code": 3110,
+                    "comment": 181,
+                    "blank": 513
+                },
+                ".zon": {
+                    "code": 22,
+                    "comment": 112,
+                    "blank": 10
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 4,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 2,
+                    "filename": ".gitmodules"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "assembler/.git"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "assembler/.gitignore"
+                },
+                {
+                    "blank": 10,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "assembler/build.zig"
+                },
+                {
+                    "blank": 5,
+                    "code": 11,
+                    "comment": 56,
+                    "filename": "assembler/build.zig.zon"
+                },
+                {
+                    "blank": 4,
+                    "code": 8,
+                    "comment": 1,
+                    "filename": "assembler/README.md"
+                },
+                {
+                    "blank": 7,
+                    "code": 71,
+                    "comment": 1,
+                    "filename": "assembler/src/instruction-getters.zig"
+                },
+                {
+                    "blank": 6,
+                    "code": 57,
+                    "comment": 1,
+                    "filename": "assembler/src/instruction-types.zig"
+                },
+                {
+                    "blank": 111,
+                    "code": 577,
+                    "comment": 107,
+                    "filename": "assembler/src/main.zig"
+                },
+                {
+                    "filename": "assembler/zig-out/bin/assembler",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "compiler/.git"
+                },
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "compiler/.gitignore"
+                },
+                {
+                    "blank": 10,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "compiler/build.zig"
+                },
+                {
+                    "blank": 5,
+                    "code": 11,
+                    "comment": 56,
+                    "filename": "compiler/build.zig.zon"
+                },
+                {
+                    "blank": 3,
+                    "code": 21,
+                    "comment": 1,
+                    "filename": "compiler/README.md"
+                },
+                {
+                    "blank": 42,
+                    "code": 203,
+                    "comment": 23,
+                    "filename": "compiler/src/ast/asm.zig"
+                },
+                {
+                    "blank": 26,
+                    "code": 153,
+                    "comment": 0,
+                    "filename": "compiler/src/ast/c.zig"
+                },
+                {
+                    "blank": 11,
+                    "code": 99,
+                    "comment": 1,
+                    "filename": "compiler/src/emission.zig"
+                },
+                {
+                    "blank": 50,
+                    "code": 440,
+                    "comment": 10,
+                    "filename": "compiler/src/gen.zig"
+                },
+                {
+                    "blank": 40,
+                    "code": 162,
+                    "comment": 0,
+                    "filename": "compiler/src/lexer.zig"
+                },
+                {
+                    "blank": 83,
+                    "code": 455,
+                    "comment": 0,
+                    "filename": "compiler/src/main.zig"
+                },
+                {
+                    "blank": 52,
+                    "code": 357,
+                    "comment": 10,
+                    "filename": "compiler/src/parser.zig"
+                },
+                {
+                    "blank": 6,
+                    "code": 162,
+                    "comment": 0,
+                    "filename": "compiler/src/prettyprinter.zig"
+                },
+                {
+                    "blank": 10,
+                    "code": 15,
+                    "comment": 26,
+                    "filename": "compiler/src/semantic-analysis.zig"
+                },
+                {
+                    "blank": 7,
+                    "code": 74,
+                    "comment": 0,
+                    "filename": "compiler/src/semantic/loop-labeling.zig"
+                },
+                {
+                    "blank": 27,
+                    "code": 160,
+                    "comment": 2,
+                    "filename": "compiler/src/semantic/variable-resolution.zig"
+                },
+                {
+                    "blank": 15,
+                    "code": 71,
+                    "comment": 0,
+                    "filename": "compiler/src/tokens.zig"
+                },
+                {
+                    "filename": "compiler/zig-out/bin/compiler",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 61,
+                    "comment": 0,
+                    "filename": "flake.lock"
+                },
+                {
+                    "blank": 3,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "flake.nix"
+                },
+                {
+                    "filename": "program",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "program.asm"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "program.c"
+                },
+                {
+                    "blank": 6,
+                    "code": 50,
+                    "comment": 0,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 3,
+                    "code": 5,
+                    "comment": 1,
+                    "filename": "run.sh"
+                },
+                {
+                    "blank": 2,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "sh/assembler.sh"
+                },
+                {
+                    "blank": 2,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "sh/compiler.sh"
+                },
+                {
+                    "blank": 2,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "sh/sim.sh"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "shared_tests/and_short_circuit_1.asm"
+                },
+                {
+                    "blank": 0,
+                    "code": 52,
+                    "comment": 0,
+                    "filename": "shared_tests/compound_if_1.asm"
+                },
+                {
+                    "blank": 0,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "shared_tests/if_1.asm"
+                },
+                {
+                    "blank": 0,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "shared_tests/if_2.asm"
+                },
+                {
+                    "blank": 0,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "shared_tests/if_3.asm"
+                },
+                {
+                    "blank": 0,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "shared_tests/in_place_operators.asm"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "shared_tests/or_short_circuit_1.asm"
+                },
+                {
+                    "blank": 0,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "shared_tests/or_short_circuit_2.asm"
+                },
+                {
+                    "blank": 0,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "shared_tests/variables_1.asm"
+                },
+                {
+                    "blank": 0,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "shared_tests/variables_2.asm"
+                },
+                {
+                    "blank": 0,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "shared_tests/while_loop.asm"
+                },
+                {
+                    "blank": 7,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "sim.sv"
+                },
+                {
+                    "blank": 0,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "sim.vcd"
+                },
+                {
+                    "blank": 8,
+                    "code": 54,
+                    "comment": 0,
+                    "filename": "src/alu.sv"
+                },
+                {
+                    "blank": 23,
+                    "code": 83,
+                    "comment": 10,
+                    "filename": "src/decoder.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 33,
+                    "comment": 5,
+                    "filename": "src/instruction_memory.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "src/memory.sv"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src/program_counter.sv"
+                },
+                {
+                    "blank": 5,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src/register_file.sv"
+                },
+                {
+                    "blank": 13,
+                    "code": 100,
+                    "comment": 6,
+                    "filename": "src/top.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "tb/and_short_circuit_1_tb.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "tb/compound_if_1.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "tb/if_1.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "tb/if_2.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "tb/if_3.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "tb/in_place_operators.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "tb/or_short_circuit_1_tb.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "tb/or_short_circuit_2_tb.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "tb/variables_1.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "tb/variables_2.sv"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "tb/while_loop.sv"
+                },
+                {
+                    "blank": 23,
+                    "code": 69,
+                    "comment": 1,
+                    "filename": "tests.sh"
+                }
+            ]
+        }
+    ]
+}

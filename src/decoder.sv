@@ -75,6 +75,7 @@ module decoder (
           case (funct3)
             3'b000:  alu_ops = 4'b1100;  // MUL
             3'b100:  alu_ops = 4'b1101;  // DIV
+            3'b110:  alu_ops = 4'b1110;  // REM
             default: alu_ops = 4'b0000;  // REST NOT DEFINED !! TODO
           endcase
         end
@@ -128,22 +129,23 @@ module decoder (
           3'b111: alu_ops = 4'b0101;  // BGEU
         endcase
 
-        imm[11:5] = instr[31:25];
-        imm[4:0]  = instr[11:7];
+        imm[31:12] = {20{instr[31]}};
+        imm[11:5]  = instr[31:25];
+        imm[4:0]   = instr[11:7];
 
-        is_branch = 1;
-        rs1_used  = 1;
-        rs2_used  = 1;
+        is_branch  = 1;
+        rs1_used   = 1;
+        rs2_used   = 1;
       end
 
       J_TYPE: begin
-        alu_ops   = 4'b0110; // JAL
-        
-        imm[20:0] = instr[31:12];
+        alu_ops = 4'b0110;  // JAL
+ 
+        imm = {{13{instr[31]}}, instr[30:12]};
 
         is_branch = 1;
-        rs1_used  = 1;
-        rs2_used  = 1;
+        rs1_used = 1;
+        rs2_used = 1;
       end
 
       S_TYPE: begin

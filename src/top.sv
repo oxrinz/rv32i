@@ -86,7 +86,7 @@ module top (
       .mem_data(mem_out)
   );
 
-  decoder decoder_inst (
+  decoder decoder_inst ( 
       .instr(instr),
       .alu_ops(alu_ops),
       .reg_write(reg_write),

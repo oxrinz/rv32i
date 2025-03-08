@@ -8,15 +8,15 @@ module alu_tb;
   end
 
   initial begin
-    $dumpfile("if_3.vcd");
+    $dumpfile("do_while_loop.vcd");
     $dumpvars(0, dut);
   end
 
   initial begin
-    #36;
-    if (dut.memory_inst.data !== 32'd62) begin
-      $error("Memory has wrong active data: got %d, expected 62",
-             dut.memory_inst.data);
+    #78;
+    if (dut.instr_mem.addr !== 32'd23) begin
+      $error("Instruction memory has wrong active address: got %d, expected 23",
+             dut.instr_mem.addr);
       $fatal(1, "Test failed");
     end
 

@@ -45,31 +45,32 @@ module alu (
         4'b0000:
         if (rs1_signed == rs2_signed) begin
           pc_load = 1;
-          new_pc_data = pc_data + imm;
+          new_pc_data = pc_data + imm_signed;
         end
 
         4'b0001:
         if (rs1_signed != rs2_signed) begin
           pc_load = 1;
-          new_pc_data = pc_data + imm;
+          new_pc_data = pc_data + imm_signed;
         end
 
         4'b0010:
         if (rs1_signed < rs2_signed) begin
           pc_load = 1;
-          new_pc_data = pc_data + imm;
+          new_pc_data = pc_data + imm_signed;
         end
 
         4'b0011:
         if (rs1_signed >= rs2_signed) begin
           pc_load = 1;
-          new_pc_data = pc_data + imm;
+          new_pc_data = pc_data + imm_signed;
         end
 
         4'b0110: begin
+          
           rd_data = pc_data;
           pc_load = 1;
-          new_pc_data = pc_data + imm;
+          new_pc_data = $signed(pc_data) + imm_signed;
         end
       endcase
 
@@ -87,6 +88,7 @@ module alu (
         4'b0110: rd_data = rs1_signed >> rs2_signed;
         4'b1100: rd_data = rs1_signed * rs2_signed;
         4'b1101: rd_data = rs1_signed / rs2_signed;
+        4'b1110: rd_data = rs1_signed % rs2_signed;
         4'b1001: rd_data = rs1_signed < rs2_signed;
         default: rd_data = 32'b0;
       endcase

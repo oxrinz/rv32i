@@ -19,8 +19,8 @@ addi t0 t0 0
 sw t1 0(t0)
 jal t0 else_end_0
 if_end_0:
-lui t0 0
-addi t0 t0 19
+lui t1 0
+addi t1 t1 19
 lui t0 0
 addi t0 t0 0
 sw t1 0(t0)
