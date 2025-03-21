@@ -24,6 +24,9 @@ module register_file (
       for (i = 0; i < 32; i = i + 1) begin
         registers[i] <= 32'b0;
       end
+
+      registers[2] = 32'h3FF;
+      
     end else if (we && rd_addr != 0) begin
       registers[rd_addr] <= rd_data;
     end

@@ -32,6 +32,7 @@ module decoder (
   localparam R_TYPE = 5'b01100;
   localparam I_TYPE = 5'b00100;
   localparam I_LOAD_TYPE = 5'b00000;
+  localparam I_JALR_TYPE = 5'b11001;
   localparam B_TYPE = 5'b11000;
   localparam S_TYPE = 5'b01000;
   localparam J_TYPE = 5'b11011;
@@ -39,8 +40,6 @@ module decoder (
   localparam LOAD = 5'b00000;
   localparam STORE = 5'b01000;
   localparam BRANCH = 5'b11000;
-  localparam JAL = 5'b11011;
-  localparam JALR = 5'b11001;
 
   assign rs1 = instr[19:15];
   assign rs2 = instr[24:20];
@@ -140,12 +139,21 @@ module decoder (
 
       J_TYPE: begin
         alu_ops = 4'b0110;  // JAL
- 
+
         imm = {{13{instr[31]}}, instr[30:12]};
 
         is_branch = 1;
         rs1_used = 1;
         rs2_used = 1;
+        reg_write = 1;
+      end
+
+      I_JALR_TYPE: begin
+        alu_ops = 4'b0111;  //JALR
+
+        is_branch = 1;
+        imm = instr[31:20];
+        reg_write = 1;
       end
 
       S_TYPE: begin

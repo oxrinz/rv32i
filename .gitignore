@@ -15,4 +15,7 @@ OpenTimer
 
 # some temp files that might accidentally get leaved in, don't remove even if they don't exist
 *.vcd
+*.vvp
 out
+ROADMAP.md
+temp

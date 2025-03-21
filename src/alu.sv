@@ -40,6 +40,7 @@ module alu (
       mem_addr = rs1_data + imm;
       rd_data  = mem_data;
 
+
     end else if (is_branch) begin
       case (alu_ops)
         4'b0000:
@@ -67,10 +68,15 @@ module alu (
         end
 
         4'b0110: begin
-          
-          rd_data = pc_data;
+          rd_data = pc_data + 1;
           pc_load = 1;
-          new_pc_data = $signed(pc_data) + imm_signed;
+          new_pc_data = pc_data + imm_signed;
+        end
+
+        4'b0111: begin
+          rd_data = pc_data + 1;
+          pc_load = 1;
+          new_pc_data = rs1_data + imm_signed;
         end
       endcase
 
